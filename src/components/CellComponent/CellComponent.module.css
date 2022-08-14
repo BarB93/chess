@@ -2,9 +2,18 @@
   @apply flex justify-center items-center;
   width: var(--cell-size);
   height: var(--cell-size);
-  background-color: #c56745;
 
   &.light {
     background-color: #ebc49d;
   }
+  &.dark {
+    background-color: #c56745;
+  }
+}
+
+.light {
+  background-color: #ebc49d;
+}
+.dark {
+  background-color: #c56745;
 }

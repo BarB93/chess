@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --cell-size: 64px;
+  --cell-size: 84px;
 }
 
 html {
@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  @apply bg-slate-700;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;

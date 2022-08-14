@@ -1,14 +1,18 @@
 import React from 'react'
 import clsx from 'clsx'
+import { Colors } from '../../ts/enums/Colors.enum'
 
-type RookProps = {
-  light?: boolean
+type RookSVGCmponentProps = {
+  color: Colors
 }
 
-const Rook: React.FC<RookProps> = ({ light }) => {
+const RookSVGCmponent: React.FC<RookSVGCmponentProps> = ({ color }) => {
+  const isLight = color === Colors.LIGTH
+  const isDark = color === Colors.DARK
+
   return (
     <svg
-      className={clsx(light && 'fill-stone-300')}
+      className={clsx(isLight && 'fill-white', isDark && 'fill-black')}
       enableBackground='new 0 0 100 100'
       height='100px'
       version='1.1'
@@ -26,4 +30,4 @@ const Rook: React.FC<RookProps> = ({ light }) => {
   )
 }
 
-export default Rook
+export default RookSVGCmponent

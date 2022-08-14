@@ -1,0 +1,6 @@
+export { default as KingSVGCmponent } from './KingSVGCmponent'
+export { default as BishopSVGCmponent } from './BishopSVGCmponent'
+export { default as RookSVGCmponent } from './RookSVGCmponent'
+export { default as KnightSVGCmponent } from './KnightSVGCmponent'
+export { default as PawnSVGCmponent } from './PawnSVGCmponent'
+export { default as QueenSVGCmponent } from './QueenSVGCmponent'
