@@ -11,11 +11,11 @@ const Board: React.FC = () => {
 
   return (
     <div className={styles.board}>
-      {board.cell.map((row, i) => (
+      {board.cells.map((row, i) => (
         <React.Fragment key={i}>
           <div className={clsx(styles.leftBorder, styles[`leftBorder${i}`])}>{i + 1}</div>
           {row.map((cell) => (
-            <CellComponent key={cell.id} color={cell.color}>
+            <CellComponent key={cell.id} color={cell.color} cell={cell}>
               {cell?.figure?.component && (
                 <cell.figure.component color={cell.figure.color} />
               )}

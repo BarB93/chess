@@ -1,19 +1,30 @@
 .cell {
-  @apply flex justify-center items-center;
+  @apply relative flex justify-center items-center;
   width: var(--cell-size);
   height: var(--cell-size);
 
   &.light {
     background-color: #ebc49d;
   }
+
   &.dark {
     background-color: #c56745;
   }
-}
 
-.light {
-  background-color: #ebc49d;
-}
-.dark {
-  background-color: #c56745;
+  &.selected {
+    @apply bg-green-600;
+  }
+
+  &.available {
+    @apply cursor-pointer;
+
+    &::before {
+      content: '';
+      @apply absolute w-3 h-3 rounded-full bg-gray-300;
+    }
+  }
+
+  &.eatable {
+    @apply bg-red-600;
+  }
 }

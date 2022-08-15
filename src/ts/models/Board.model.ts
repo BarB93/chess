@@ -2,7 +2,7 @@ import { Colors } from '../enums/Colors.enum'
 import { Cell, Bishop, King, Knight, Pawn, Queen, Rook } from './index'
 
 export class Board {
-  cell: Cell[][] = []
+  cells: Cell[][] = []
 
   public initCells() {
     for (let i = 0; i < 8; i++) {
@@ -18,12 +18,28 @@ export class Board {
           )
         }
       }
-      this.cell.push(row)
+      this.cells.push(row)
     }
   }
 
   public getCell(x: number, y: number): Cell {
-    return this.cell[y][x]
+    return this.cells[y][x]
+  }
+
+  public highlightCells(selectedCell: Cell | null) {
+    for (let i = 0; i < this.cells.length; i++) {
+      const row = this.cells[i]
+      for (let j = 0; j < row.length; j++) {
+        const target = row[j]
+        target.available = !!selectedCell?.figure?.canMove(target)
+      }
+    }
+  }
+
+  public getCopyBoard(): Board {
+    const newBoard = new Board()
+    newBoard.cells = this.cells
+    return newBoard
   }
 
   private addPawns() {

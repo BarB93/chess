@@ -12,7 +12,7 @@ const PawnSVGCmponent: React.FC<PawnSVGCmponentProps> = ({ color }) => {
 
   return (
     <svg
-      className={clsx(isLight && 'fill-white', isDark && 'fill-black')}
+      className={clsx('w-16', isLight && 'fill-white', isDark && 'fill-black')}
       enableBackground='new 0 0 100 100'
       height='100px'
       version='1.1'

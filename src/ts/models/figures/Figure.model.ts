@@ -7,7 +7,7 @@ import { Cell } from '../Cell.model'
 export class Figure {
   cell: Cell
   component: FigureComponentType
-  figure: FigureNames
+  name: FigureNames
   color: Colors
   id: string
 
@@ -15,13 +15,26 @@ export class Figure {
     this.color = color
     this.id = nanoid(5)
     this.component = null
-    this.figure = FigureNames.FIGURE
+    this.name = FigureNames.FIGURE
     this.cell = cell
     this.cell.figure = this
   }
 
-  // canMove(target: Cell): boolean {
-  //   return true
-  // }
-  // moveFigure(target: Cell) {}
+  canMove(target: Cell): boolean {
+    if (target.figure?.color === this.color) {
+      return false
+    }
+    if (target.figure?.name === FigureNames.KING) {
+      return false
+    }
+    return true
+  }
+
+  moveFigure(target: Cell) {
+    if (this?.cell?.figure?.canMove(target)) {
+      target.figure = this.cell.figure
+      this.cell.figure = null
+      target.figure.cell = target
+    }
+  }
 }
